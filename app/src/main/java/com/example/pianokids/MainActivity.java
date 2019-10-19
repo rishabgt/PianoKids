@@ -7,23 +7,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private final int NR_OF_MAXSTREAM = 12;
-    private int mBSoundId;
-    private int mHSoundId;
-    private int mNSoundId;
-    private int mJSoundId;
-    private int mMSoundId;
-    private int mQSoundId;
-    private int m2SoundId;
-    private int mWSoundId;
-    private int m3SoundId;
-    private int mESoundId;
-    private int mRSoundId;
-    private int m5SoundId;
-    private final float LEFT_VOLUME = 1.0f;
-    private final float RIGHT_VOLUME = 1.0f;
+    int mBSoundId;
+    int mHSoundId;
+    int mNSoundId;
+    int mJSoundId;
+    int mMSoundId;
+    int mQSoundId;
+    int m2SoundId;
+    int mWSoundId;
+    int m3SoundId;
+    int mESoundId;
+    int mRSoundId;
+    int m5SoundId;
+    private EditText editText;
+    final float LEFT_VOLUME = 1.0f;
+    final float RIGHT_VOLUME = 1.0f;
     SoundPool mSoundPool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         mESoundId = mSoundPool.load(this,R.raw.pe,1);
         mRSoundId = mSoundPool.load(this,R.raw.pr,1);
         m5SoundId = mSoundPool.load(this,R.raw.p5,1);
+        editText = findViewById(R.id.editText);
     }
+
     public void playB(View view){mSoundPool.play(mBSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
     public void playH(View view){mSoundPool.play(mHSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
     public void playN(View view){mSoundPool.play(mNSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
@@ -55,4 +59,20 @@ public class MainActivity extends AppCompatActivity {
     public void playE(View view){mSoundPool.play(mESoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
     public void playR(View view){mSoundPool.play(mRSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
     public void play5(View view){mSoundPool.play(m5SoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);}
+    public void play(View view)throws Exception{
+        String s = String.valueOf(editText.getText());
+        int len = s.length();
+        for(int i = 0;i < len;i++)
+        {
+            char c = s.charAt(i);
+            switch(c){
+                case 'B':mSoundPool.play(mBSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                          break;
+                case 'H':mSoundPool.play(mHSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                          break;
+                default:break;
+            }
+            Thread.sleep(1000);
+        }
+    }
 }
