@@ -23,6 +23,23 @@ public class MainActivity extends AppCompatActivity {
     int mESoundId;
     int mRSoundId;
     int m5SoundId;
+    int m0SoundId;
+    int m6SoundId;
+    int m7SoundId;
+    int m9SoundId;
+    int mCSoundId;
+    int mGSoundId;
+    int mISoundId;
+    int mOSoundId;
+    int mPSoundId;
+    int mTSoundId;
+    int mUSoundId;
+    int mVSoundId;
+    int mXSoundId;
+    int mYSoundId;
+    int mZSoundId;
+
+
     private EditText editText;
     final float LEFT_VOLUME = 1.0f;
     final float RIGHT_VOLUME = 1.0f;
@@ -44,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         mESoundId = mSoundPool.load(this,R.raw.pe,1);
         mRSoundId = mSoundPool.load(this,R.raw.pr,1);
         m5SoundId = mSoundPool.load(this,R.raw.p5,1);
+        m0SoundId = mSoundPool.load(this,R.raw.p0,1);
+        m6SoundId = mSoundPool.load(this,R.raw.p6,1);
+        m7SoundId = mSoundPool.load(this,R.raw.p7,1);
+        m9SoundId = mSoundPool.load(this,R.raw.p9,1);
+
         editText = findViewById(R.id.editText);
     }
 
@@ -66,10 +88,32 @@ public class MainActivity extends AppCompatActivity {
         {
             char c = s.charAt(i);
             switch(c){
+                case 'b':
                 case 'B':mSoundPool.play(mBSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
                           break;
+
                 case 'H':mSoundPool.play(mHSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
                           break;
+                case 'N':mSoundPool.play(mNSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'Q':mSoundPool.play(mQSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case '2':mSoundPool.play(m2SoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'W':mSoundPool.play(mWSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'J':mSoundPool.play(mJSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'M':mSoundPool.play(mMSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case '3':mSoundPool.play(m3SoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'E':mSoundPool.play(mESoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case 'R':mSoundPool.play(mRSoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
+                case '5':mSoundPool.play(m5SoundId,LEFT_VOLUME,RIGHT_VOLUME,0,0,1);
+                    break;
                 default:break;
             }
             Thread.sleep(1000);
